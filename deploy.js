@@ -1,11 +1,12 @@
 const HDWalletProvier = require('truffle-hdwallet-provider')
 const Web3 = require('web3')
 const { interface, bytecode } = require('./compile')
+require('dotenv').config()
 
 // Setting up HD Wallet Provider
 const provider = new HDWalletProvier(
-	'gossip leader close name soft rent chase crumble open bracket rare birth',
-	'https://rinkeby.infura.io/v3/a67684f670804a78b150e5fa5bfd02ef'
+	process.env.mnemonic,
+	process.env.network_endpoint
 )
 const web3 = new Web3(provider)
 
